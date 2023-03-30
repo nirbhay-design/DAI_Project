@@ -1,0 +1,9 @@
+__pycache__/
+.ipynb_checkpoints/
+
+cifar10/
+cifar100/
+*.pt
+*.pth
+
+
