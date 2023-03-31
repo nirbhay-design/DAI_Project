@@ -29,8 +29,8 @@ sample_clients: 0.5
 
 lr: 0.001
     
-total_iterations: 200
-client_iterations: 1
+total_iterations: 100
+client_iterations: 10
 img_size:
     - 32
     - 32
@@ -43,5 +43,5 @@ momentum: 0.9
 
 # server_model: /DATA/sharma59/Know_distil/datafreekd/saved_models/resnet18_fed_avg_real_v1.pt
 
-return_logs: True
+return_logs: False
 pid: 30011

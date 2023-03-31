@@ -47,11 +47,11 @@ class Client():
         self.distri = distribution
         self.train_loader = train_loader
         self.mdl = return_model(mdl_name, self.nc)
-        self.opt = optim.SGD(self.mdl.parameters(), lr=self.lr, momentum=self.mom)
         self.lossfn = nn.CrossEntropyLoss()
         
     def train_client(self, transformations, n_epochs, device): 
         self.mdl = self.mdl.to(device)
+        self.opt = optim.SGD(self.mdl.parameters(), lr=self.lr, momentum=self.mom)
         tval = {'trainacc':[],"trainloss":[]}
         self.mdl.train()
         len_train = len(self.train_loader)
@@ -98,31 +98,23 @@ class Server():
         self.nc = config['nclass']
         self.mdl = return_model(config['model'], self.nc)
         self.device = device
-    
-    def aggregate_models(self, clients_model, distribution):
-        aggregated_model = {name:params * distribution[0] for name,params in clients_model[0].state_dict().items()}
-
-        for idx, client_mdl in enumerate(clients_model[1:]):
-            idx_clt_sd = client_mdl.state_dict()
-            for name, param in idx_clt_sd.items():
-                aggregated_model[name] += param * distribution[idx+1]
-                
-        print(self.mdl.load_state_dict(aggregated_model))
         
-#     def aggregate_models(self, clients_model, distribution):
-#         n_clients = len(clients_model)
-#         params_dict = {}
-#         server_params = {**self.mdl.state_dict()}
-#         for name, params in server_params.items():
-#             params_dict[name] = torch.zeros_like(server_params[name])
-#             for idx, client in enumerate(clients_model):
-#                 client_dict = client.state_dict()
-#                 if params_dict[name].dtype == torch.int64:
-#                     params_dict[name] += client_dict[name] // n_clients
-#                 else:    
-#                     params_dict[name] += client_dict[name] * distribution[idx]
+    def aggregate_models(self, clients_model, distribution):
+        n_clients = len(clients_model)
+        server_params = {
+            name: params * distribution[0] for name, params in clients_model[0].named_parameters()
+        }
+        for idx, client in enumerate(clients_model[1:]):
+            cur_client = client.named_parameters()
+            for name, params in cur_client:
+                server_params[name] += params * distribution[idx+1]
 
-#         print(self.mdl.load_state_dict(params_dict))
+        st_dict = dict(self.mdl.state_dict())
+        for name, params in st_dict.items():
+            if name not in server_params:
+                server_params[name] = st_dict[name]
+        
+        print(self.mdl.load_state_dict(server_params))
         
 class FedAvg():
     def __init__(self, clients_data, distri, test_data, config):
