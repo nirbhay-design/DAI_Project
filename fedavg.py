@@ -16,6 +16,7 @@ import pickle
 import random
 import time,json
 import copy,sys
+from collections import OrderedDict
 from sklearn.preprocessing import label_binarize
 from sklearn.metrics import classification_report,auc,roc_curve,precision_recall_fscore_support
 from inference import evaluate_single_server
@@ -87,6 +88,8 @@ class Client():
 
             print(f"epochs: [{epochs+1}/{n_epochs}] train_acc: {curacc:.3f} train_loss: {cur_loss:.3f}")
             
+        self.mdl = copy.deepcopy(self.mdl)
+        
         return tval 
     
     def replace_mdl(self, server_mdl):
@@ -99,22 +102,18 @@ class Server():
         self.mdl = return_model(config['model'], self.nc)
         self.device = device
         
-    def aggregate_models(self, clients_model, distribution):
+    def aggregate_models(self, clients_model):
+        update_state = OrderedDict()
         n_clients = len(clients_model)
-        server_params = {
-            name: params * distribution[0] for name, params in clients_model[0].named_parameters()
-        }
-        for idx, client in enumerate(clients_model[1:]):
-            cur_client = client.named_parameters()
-            for name, params in cur_client:
-                server_params[name] += params * distribution[idx+1]
-
-        st_dict = dict(self.mdl.state_dict())
-        for name, params in st_dict.items():
-            if name not in server_params:
-                server_params[name] = st_dict[name]
-        
-        print(self.mdl.load_state_dict(server_params))
+        for k, client in enumerate(clients_model):
+            local_state = client.state_dict()
+            for key in self.mdl.state_dict().keys():
+                if k == 0:
+                    update_state[key] = local_state[key] / n_clients 
+                else:
+                    update_state[key] += local_state[key] / n_clients
+      
+        print(self.mdl.load_state_dict(update_state))
         
 class FedAvg():
     def __init__(self, clients_data, distri, test_data, config):
@@ -141,6 +140,7 @@ class FedAvg():
         self.server = Server(config, self.device)
         
     def train(self, transformations):
+        start_time = time.perf_counter()
         for idx in range(self.totaliter):
             print(f"iteration [{idx+1}/{self.totaliter}]")
             clients_selected = random.sample([i for i in range(self.nclients)], self.sample_cli)
@@ -155,8 +155,7 @@ class FedAvg():
 
             print("############## server ##############")
             self.server.aggregate_models(
-                [self.clients[i].mdl for i in clients_selected],
-                distribution,
+                [self.clients[i].mdl for i in clients_selected]
             )
 
             single_acc = evaluate_single_server(
@@ -172,6 +171,12 @@ class FedAvg():
             
             print(f'cur_acc: {single_acc.item():.3f}')
             
+        end_time = time.perf_counter()
+        elapsed_time = int(end_time - start_time)
+        hr = elapsed_time // 3600
+        mi = (elapsed_time - hr * 3600) // 60
+        print(f"training done in {hr} H {mi} M")
+            
 if __name__ == "__main__":
     
     config = yaml_loader(sys.argv[1])
@@ -184,6 +189,11 @@ if __name__ == "__main__":
     torch.backends.cudnn.deterministic = True
     torch.backends.cuda.matmul.allow_tf32 = True
     torch.backends.cudnn.allow_tf32 = True    
+    
+    print("environment: ")
+    print(f"YAML: {sys.argv[1]}")
+    for key, value in config.items():
+        print(f"==> {key}: {value}")
             
     client_data, distri = load_dataset(config)
     test_data = load_dataset_test(config)
