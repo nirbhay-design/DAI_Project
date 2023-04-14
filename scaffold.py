@@ -49,9 +49,21 @@ class Client():
         self.train_loader = train_loader
         self.mdl = return_model(mdl_name, self.nc)
         self.lossfn = nn.CrossEntropyLoss()
+        self.ci = {
+            name: torch.zeros_like(params)
+            for name, params in self.mdl.named_parameters()
+        }
+        self.c = {
+            name: torch.zeros_like(params)
+            for name, params in self.mdl.named_parameters()
+        }
+        self.serv_mdl = return_model(mdl_name, self.nc)
         
     def train_client(self, transformations, n_epochs, device): 
+        self.put_to_device(device)
+        c_diff = self.c_diff()
         self.mdl = self.mdl.to(device)
+        self.serv_mdl = self.serv_mdl.to(device)
         self.opt = optim.SGD(self.mdl.parameters(), lr=self.lr, momentum=self.mom)
         tval = {'trainacc':[],"trainloss":[]}
         self.mdl.train()
@@ -78,6 +90,10 @@ class Client():
 
                 self.opt.zero_grad()
                 loss.backward()
+                
+                for name, params in self.mdl.named_parameters():
+                    params.grad += c_diff[name]
+
                 self.opt.step()
 
                 if self.return_logs:
@@ -90,21 +106,74 @@ class Client():
             
         self.mdl = copy.deepcopy(self.mdl)
         
+        self.mdl_diff = self.diff_mdl()
+        self.c, self.diff_c = copy.deepcopy(self.update_c(c_diff, self.mdl_diff, n_epochs))
+        
         return tval 
     
-    def replace_mdl(self, server_mdl):
+    def put_to_device(self, device):
+        for name, params in self.c.items():
+            self.c[name] = self.c[name].to(device)
+            self.ci[name] = self.ci[name].to(device)
+    
+    def c_diff(self):
+        # c - c_i
+        c_diff = OrderedDict()
+        for name, params in self.c.items():
+            c_diff[name] = self.c[name] - self.ci[name]
+        return c_diff
+    
+    def diff_mdl(self):
+        # x - y_i
+        mdl_diff = OrderedDict()
+        server_parms = self.serv_mdl.state_dict()
+        for name, params in self.mdl.state_dict().items():
+            mdl_diff[name] = params - server_parms[name]
+        return mdl_diff
+    
+    def update_c(self, c_diff, mdl_diff, K):
+        # c+
+        alpha = 1 / (K * self.lr)
+        
+        update_c = OrderedDict()
+        diff_c = OrderedDict()
+        for name, params in c_diff.items():
+            val = alpha * mdl_diff[name]
+            update_c[name] = val - c_diff[name]
+            diff_c[name] = val - self.c[name]
+        return update_c, diff_c
+    
+    def replace_mdl(self, server_mdl, server_c):
         self.mdl = copy.deepcopy(server_mdl)
+        self.serv_mdl = copy.deepcopy(server_mdl)
+        self.c = copy.deepcopy(server_c)
     
     
 class Server():
     def __init__(self, config, device):
         self.nc = config['nclass']
+        self.total_clients = config['n_clients']
         self.mdl = return_model(config['model'], self.nc)
         self.device = device
+        self.c = {
+            name: torch.zeros_like(params)
+            for name, params in self.mdl.named_parameters()
+        }
+        self.lr = 0.001
         
-    def aggregate_models(self, clients_model):
+        self.put_to_device(self.device)
+        
+    def put_to_device(self, device):
+        self.mdl = self.mdl.to(device)
+        for name, params in self.c.items():
+            self.c[name] = self.c[name].to(device)
+        
+    def aggregate_models(self, clients_model, c_diff):
         update_state = OrderedDict()
+        avg_cv = OrderedDict()
+        
         n_clients = len(clients_model)
+
         for k, client in enumerate(clients_model):
             local_state = client.state_dict()
             for key in self.mdl.state_dict().keys():
@@ -112,8 +181,48 @@ class Server():
                     update_state[key] = local_state[key] / n_clients 
                 else:
                     update_state[key] += local_state[key] / n_clients
+                    
+        for k, cv_diff in enumerate(c_diff):
+            for name, params in cv_diff.items():
+                if k == 0:
+                    avg_cv[name] = cv_diff[name] / n_clients
+                else:
+                    avg_cv[name] += cv_diff[name] / n_clients
+        
+        for name, params in avg_cv.items():
+            self.c[name] += (n_clients / self.total_clients) * avg_cv[name]
       
         print(self.mdl.load_state_dict(update_state))
+        
+    def aggregate_models1(self, clients_model, c_diff):
+        update_state = OrderedDict()
+        avg_cv = OrderedDict()
+        final_state = OrderedDict()
+        
+        n_clients = len(clients_model)
+        mdl_state_dict = self.mdl.state_dict()
+
+        for k, client in enumerate(clients_model):
+            for key in mdl_state_dict.keys():
+                if k == 0:
+                    update_state[key] = client[key] / n_clients 
+                else:
+                    update_state[key] += client[key] / n_clients
+                    
+        for k, cv_diff in enumerate(c_diff):
+            for name, params in cv_diff.items():
+                if k == 0:
+                    avg_cv[name] = cv_diff[name] / n_clients
+                else:
+                    avg_cv[name] += cv_diff[name] / n_clients
+        
+        for name, params in avg_cv.items():
+            self.c[name] += (n_clients / self.total_clients) * avg_cv[name]
+            
+        for name, params in mdl_state_dict.items():
+            final_state[name] = mdl_state_dict[name] - self.lr * update_state[name]
+      
+        print(self.mdl.load_state_dict(final_state))
         
 class SCAFFOLD():
     def __init__(self, clients_data, distri, test_data, config):
@@ -155,7 +264,8 @@ class SCAFFOLD():
 
             print("############## server ##############")
             self.server.aggregate_models(
-                [self.clients[i].mdl for i in clients_selected]
+                [self.clients[i].mdl for i in clients_selected],
+                [self.clients[i].diff_c for i in clients_selected]
             )
 
             single_acc = evaluate_single_server(
@@ -167,7 +277,7 @@ class SCAFFOLD():
             )
             
             for pdx in clients_selected:
-                self.clients[pdx].replace_mdl(self.server.mdl)
+                self.clients[pdx].replace_mdl(self.server.mdl, self.server.c)
             
             print(f'cur_acc: {single_acc.item():.3f}')
             
