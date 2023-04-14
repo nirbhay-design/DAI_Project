@@ -226,3 +226,412 @@ epochs: [10/10] train_acc: 0.070 train_loss: 8.356
 epochs: [1/10] train_acc: 0.178 train_loss: 24.752
 epochs: [2/10] train_acc: 0.205 train_loss: 129.983
 epochs: [3/10] train_acc: 0.221 train_loss: 306.637
+epochs: [4/10] train_acc: 0.233 train_loss: 544.814
+epochs: [5/10] train_acc: 0.245 train_loss: 852.449
+epochs: [6/10] train_acc: 0.253 train_loss: 1168.995
+epochs: [7/10] train_acc: 0.253 train_loss: 1670.382
+epochs: [8/10] train_acc: 0.254 train_loss: 2190.785
+epochs: [9/10] train_acc: 0.265 train_loss: 2626.096
+epochs: [10/10] train_acc: 0.273 train_loss: 3098.505
+############## client 2 ##############
+epochs: [1/10] train_acc: 0.333 train_loss: 2.022
+epochs: [2/10] train_acc: 0.333 train_loss: 1.756
+epochs: [3/10] train_acc: 0.667 train_loss: 1.616
+epochs: [4/10] train_acc: 0.667 train_loss: 1.428
+epochs: [5/10] train_acc: 0.667 train_loss: 1.341
+epochs: [6/10] train_acc: 0.333 train_loss: 1.271
+epochs: [7/10] train_acc: 0.667 train_loss: 1.487
+epochs: [8/10] train_acc: 1.000 train_loss: 0.620
+epochs: [9/10] train_acc: 0.667 train_loss: 0.834
+epochs: [10/10] train_acc: 1.000 train_loss: 0.254
+############## client 3 ##############
+epochs: [1/10] train_acc: 0.137 train_loss: 4.960
+epochs: [2/10] train_acc: 0.173 train_loss: 7.883
+epochs: [3/10] train_acc: 0.190 train_loss: 11.687
+epochs: [4/10] train_acc: 0.189 train_loss: 19.125
+epochs: [5/10] train_acc: 0.209 train_loss: 23.017
+epochs: [6/10] train_acc: 0.203 train_loss: 30.438
+epochs: [7/10] train_acc: 0.211 train_loss: 32.978
+epochs: [8/10] train_acc: 0.215 train_loss: 39.453
+epochs: [9/10] train_acc: 0.217 train_loss: 45.154
+epochs: [10/10] train_acc: 0.229 train_loss: 52.210
+############## client 5 ##############
+epochs: [1/10] train_acc: 0.122 train_loss: 5.177
+epochs: [2/10] train_acc: 0.165 train_loss: 6.324
+epochs: [3/10] train_acc: 0.186 train_loss: 7.858
+epochs: [4/10] train_acc: 0.161 train_loss: 12.204
+epochs: [5/10] train_acc: 0.200 train_loss: 11.195
+epochs: [6/10] train_acc: 0.205 train_loss: 16.774
+epochs: [7/10] train_acc: 0.203 train_loss: 21.882
+epochs: [8/10] train_acc: 0.201 train_loss: 28.763
+epochs: [9/10] train_acc: 0.237 train_loss: 25.613
+epochs: [10/10] train_acc: 0.219 train_loss: 29.039
+############## server ##############
+<All keys matched successfully>
+putting model into eval mode
+correct are 0.100
+cur_acc: 0.100
+iteration [3/100]
+############## client 3 ##############
+epochs: [1/10] train_acc: 0.216 train_loss: 2928060.357
+epochs: [2/10] train_acc: 0.264 train_loss: 11955667.475
+epochs: [3/10] train_acc: 0.274 train_loss: 23371048.644
+epochs: [4/10] train_acc: 0.282 train_loss: 40266922.505
+epochs: [5/10] train_acc: 0.297 train_loss: 51144432.317
+epochs: [6/10] train_acc: 0.289 train_loss: 75853364.475
+epochs: [7/10] train_acc: 0.298 train_loss: 98540932.158
+epochs: [8/10] train_acc: 0.298 train_loss: 123629341.426
+epochs: [9/10] train_acc: 0.305 train_loss: 155363451.960
+epochs: [10/10] train_acc: 0.306 train_loss: 190160768.634
+############## client 7 ##############
+epochs: [1/10] train_acc: 0.194 train_loss: 2205087.604
+epochs: [2/10] train_acc: 0.261 train_loss: 9470559.042
+epochs: [3/10] train_acc: 0.274 train_loss: 18183743.405
+epochs: [4/10] train_acc: 0.282 train_loss: 30868882.571
+epochs: [5/10] train_acc: 0.284 train_loss: 42246180.095
+epochs: [6/10] train_acc: 0.320 train_loss: 52407534.476
+epochs: [7/10] train_acc: 0.296 train_loss: 73042072.619
+epochs: [8/10] train_acc: 0.324 train_loss: 90956139.333
+epochs: [9/10] train_acc: 0.334 train_loss: 114406977.000
+epochs: [10/10] train_acc: 0.336 train_loss: 120897227.190
+############## client 4 ##############
+epochs: [1/10] train_acc: 0.125 train_loss: 508.829
+epochs: [2/10] train_acc: 0.109 train_loss: 7252.865
+epochs: [3/10] train_acc: 0.148 train_loss: 75808.144
+epochs: [4/10] train_acc: 0.133 train_loss: 243268.070
+epochs: [5/10] train_acc: 0.188 train_loss: 387979.508
+epochs: [6/10] train_acc: 0.320 train_loss: 463529.484
+epochs: [7/10] train_acc: 0.430 train_loss: 581235.539
+epochs: [8/10] train_acc: 0.258 train_loss: 813648.641
+epochs: [9/10] train_acc: 0.383 train_loss: 905579.469
+epochs: [10/10] train_acc: 0.453 train_loss: 1245666.875
+############## client 6 ##############
+epochs: [1/10] train_acc: 0.138 train_loss: 18992.741
+epochs: [2/10] train_acc: 0.135 train_loss: 335740.727
+epochs: [3/10] train_acc: 0.206 train_loss: 820062.398
+epochs: [4/10] train_acc: 0.250 train_loss: 1392767.510
+epochs: [5/10] train_acc: 0.268 train_loss: 1844984.531
+epochs: [6/10] train_acc: 0.292 train_loss: 2767036.979
+epochs: [7/10] train_acc: 0.328 train_loss: 2829186.771
+epochs: [8/10] train_acc: 0.299 train_loss: 3783848.958
+epochs: [9/10] train_acc: 0.378 train_loss: 4200309.250
+epochs: [10/10] train_acc: 0.372 train_loss: 5500838.771
+############## client 0 ##############
+epochs: [1/10] train_acc: 0.242 train_loss: 11115167.929
+epochs: [2/10] train_acc: 0.268 train_loss: 43328448.713
+epochs: [3/10] train_acc: 0.267 train_loss: 100779886.721
+epochs: [4/10] train_acc: 0.284 train_loss: 166493813.770
+epochs: [5/10] train_acc: 0.281 train_loss: 255329823.836
+epochs: [6/10] train_acc: 0.282 train_loss: 376507259.410
+epochs: [7/10] train_acc: 0.304 train_loss: 461028399.934
+epochs: [8/10] train_acc: 0.305 train_loss: 623547973.311
+epochs: [9/10] train_acc: 0.305 train_loss: 762819555.475
+epochs: [10/10] train_acc: 0.310 train_loss: 873959675.934
+############## client 1 ##############
+epochs: [1/10] train_acc: 0.163 train_loss: 491638.375
+epochs: [2/10] train_acc: 0.252 train_loss: 2581996.695
+epochs: [3/10] train_acc: 0.288 train_loss: 5920833.993
+epochs: [4/10] train_acc: 0.295 train_loss: 9078178.814
+epochs: [5/10] train_acc: 0.321 train_loss: 12398037.800
+epochs: [6/10] train_acc: 0.308 train_loss: 17504065.314
+epochs: [7/10] train_acc: 0.340 train_loss: 21398161.571
+epochs: [8/10] train_acc: 0.336 train_loss: 32028554.514
+epochs: [9/10] train_acc: 0.349 train_loss: 36278595.114
+epochs: [10/10] train_acc: 0.314 train_loss: 37277014.629
+############## client 9 ##############
+epochs: [1/10] train_acc: 0.221 train_loss: 4837235.457
+epochs: [2/10] train_acc: 0.270 train_loss: 19687112.580
+epochs: [3/10] train_acc: 0.275 train_loss: 39740913.014
+epochs: [4/10] train_acc: 0.285 train_loss: 67187372.153
+epochs: [5/10] train_acc: 0.292 train_loss: 99850724.056
+epochs: [6/10] train_acc: 0.293 train_loss: 138200651.194
+epochs: [7/10] train_acc: 0.282 train_loss: 183939098.722
+epochs: [8/10] train_acc: 0.294 train_loss: 229067686.861
+epochs: [9/10] train_acc: 0.302 train_loss: 290047147.556
+epochs: [10/10] train_acc: 0.302 train_loss: 342591825.667
+############## client 8 ##############
+epochs: [1/10] train_acc: 0.256 train_loss: 62972177.007
+epochs: [2/10] train_acc: 0.281 train_loss: 346954937.554
+epochs: [3/10] train_acc: 0.291 train_loss: 808914845.952
+epochs: [4/10] train_acc: 0.295 train_loss: 1604714191.872
+epochs: [5/10] train_acc: 0.307 train_loss: 2339723645.586
+epochs: [6/10] train_acc: 0.309 train_loss: 3397054642.761
+epochs: [7/10] train_acc: 0.318 train_loss: 4453193819.136
+epochs: [8/10] train_acc: 0.321 train_loss: 5850395856.530
+epochs: [9/10] train_acc: 0.322 train_loss: 7716869857.134
+epochs: [10/10] train_acc: 0.324 train_loss: 9063173623.515
+############## client 2 ##############
+epochs: [1/10] train_acc: 0.000 train_loss: 3649.874
+epochs: [2/10] train_acc: 0.000 train_loss: 1552.313
+epochs: [3/10] train_acc: 0.333 train_loss: 850.521
+epochs: [4/10] train_acc: 0.333 train_loss: 462.304
+epochs: [5/10] train_acc: 0.000 train_loss: 160.476
+epochs: [6/10] train_acc: 0.000 train_loss: 1819.325
+epochs: [7/10] train_acc: 0.000 train_loss: 6000.697
+epochs: [8/10] train_acc: 0.000 train_loss: 12104.551
+epochs: [9/10] train_acc: 0.333 train_loss: 19659.572
+epochs: [10/10] train_acc: 0.000 train_loss: 40262.953
+############## client 5 ##############
+epochs: [1/10] train_acc: 0.186 train_loss: 1490220.867
+epochs: [2/10] train_acc: 0.260 train_loss: 7309551.474
+epochs: [3/10] train_acc: 0.273 train_loss: 13972317.412
+epochs: [4/10] train_acc: 0.280 train_loss: 22877899.897
+epochs: [5/10] train_acc: 0.294 train_loss: 28275039.294
+epochs: [6/10] train_acc: 0.299 train_loss: 43786349.441
+epochs: [7/10] train_acc: 0.321 train_loss: 55059749.500
+epochs: [8/10] train_acc: 0.308 train_loss: 66203573.235
+epochs: [9/10] train_acc: 0.309 train_loss: 85558101.235
+epochs: [10/10] train_acc: 0.313 train_loss: 102531150.529
+############## server ##############
+<All keys matched successfully>
+putting model into eval mode
+correct are 0.100
+cur_acc: 0.100
+iteration [4/100]
+############## client 3 ##############
+epochs: [1/10] train_acc: 0.217 train_loss: 1083435319676.218
+epochs: [2/10] train_acc: 0.231 train_loss: 7225697577750.810
+epochs: [3/10] train_acc: 0.229 train_loss: 22883367467596.035
+epochs: [4/10] train_acc: 0.238 train_loss: 45171419553062.039
+epochs: [5/10] train_acc: 0.237 train_loss: 71846071940734.750
+epochs: [6/10] train_acc: 0.246 train_loss: 108088159957843.672
+epochs: [7/10] train_acc: 0.249 train_loss: 155317477798415.219
+epochs: [8/10] train_acc: 0.256 train_loss: 183302659750151.562
+epochs: [9/10] train_acc: 0.275 train_loss: 214064667293148.531
+epochs: [10/10] train_acc: 0.268 train_loss: 274466654855411.219
+############## client 5 ##############
+epochs: [1/10] train_acc: 0.196 train_loss: 499709859435.647
+epochs: [2/10] train_acc: 0.180 train_loss: 3853623279616.000
+epochs: [3/10] train_acc: 0.233 train_loss: 11103962356314.359
+epochs: [4/10] train_acc: 0.233 train_loss: 18368915262283.297
+epochs: [5/10] train_acc: 0.247 train_loss: 28619526604679.527
+epochs: [6/10] train_acc: 0.245 train_loss: 40744927501854.117
+epochs: [7/10] train_acc: 0.228 train_loss: 75097771698537.422
+epochs: [8/10] train_acc: 0.255 train_loss: 77391874181963.312
+epochs: [9/10] train_acc: 0.271 train_loss: 98026911047198.094
+epochs: [10/10] train_acc: 0.261 train_loss: 134828585077579.266
+############## client 1 ##############
+epochs: [1/10] train_acc: 0.203 train_loss: 221976164226.743
+epochs: [2/10] train_acc: 0.231 train_loss: 857124990390.857
+epochs: [3/10] train_acc: 0.268 train_loss: 2367824113546.971
+epochs: [4/10] train_acc: 0.239 train_loss: 4695717284600.687
+epochs: [5/10] train_acc: 0.248 train_loss: 8890725081322.057
+epochs: [6/10] train_acc: 0.243 train_loss: 13025608923311.543
+epochs: [7/10] train_acc: 0.251 train_loss: 19187727867201.828
+epochs: [8/10] train_acc: 0.253 train_loss: 24500784295350.855
+epochs: [9/10] train_acc: 0.235 train_loss: 29579307377342.168
+epochs: [10/10] train_acc: 0.238 train_loss: 35434407822248.219
+############## client 0 ##############
+epochs: [1/10] train_acc: 0.212 train_loss: 5577722849717.736
+epochs: [2/10] train_acc: 0.244 train_loss: 39876620589358.148
+epochs: [3/10] train_acc: 0.252 train_loss: 117626964163265.016
+epochs: [4/10] train_acc: 0.247 train_loss: 218863939651147.531
+epochs: [5/10] train_acc: 0.243 train_loss: 402397138827431.750
+epochs: [6/10] train_acc: 0.270 train_loss: 479615625070692.812
+epochs: [7/10] train_acc: 0.264 train_loss: 750856650775635.500
+epochs: [8/10] train_acc: 0.272 train_loss: 885231362704434.125
+epochs: [9/10] train_acc: 0.269 train_loss: 1134373532284558.250
+epochs: [10/10] train_acc: 0.281 train_loss: 1521644879354158.500
+############## client 9 ##############
+epochs: [1/10] train_acc: 0.205 train_loss: 2580310138724.083
+epochs: [2/10] train_acc: 0.232 train_loss: 14349345133909.334
+epochs: [3/10] train_acc: 0.248 train_loss: 42291066692494.203
+epochs: [4/10] train_acc: 0.241 train_loss: 85451913195975.109
+epochs: [5/10] train_acc: 0.249 train_loss: 133017866891719.109
+epochs: [6/10] train_acc: 0.261 train_loss: 203296995045831.031
+epochs: [7/10] train_acc: 0.254 train_loss: 293414649666673.938
+epochs: [8/10] train_acc: 0.251 train_loss: 384377074162801.812
+epochs: [9/10] train_acc: 0.272 train_loss: 399607235462940.500
+epochs: [10/10] train_acc: 0.262 train_loss: 562994064450446.250
+############## client 6 ##############
+epochs: [1/10] train_acc: 0.148 train_loss: 10918922549.333
+epochs: [2/10] train_acc: 0.125 train_loss: 169262785194.667
+epochs: [3/10] train_acc: 0.190 train_loss: 370220990464.000
+epochs: [4/10] train_acc: 0.201 train_loss: 460945447594.667
+epochs: [5/10] train_acc: 0.221 train_loss: 557298139136.000
+epochs: [6/10] train_acc: 0.174 train_loss: 965236588544.000
+epochs: [7/10] train_acc: 0.211 train_loss: 1185474265088.000
+epochs: [8/10] train_acc: 0.227 train_loss: 1540384828074.667
+epochs: [9/10] train_acc: 0.227 train_loss: 2242141394261.333
+epochs: [10/10] train_acc: 0.208 train_loss: 2164205977600.000
+############## client 2 ##############
+epochs: [1/10] train_acc: 0.000 train_loss: 2497417216.000
+epochs: [2/10] train_acc: 0.333 train_loss: 329300032.000
+epochs: [3/10] train_acc: 0.333 train_loss: 653865024.000
+epochs: [4/10] train_acc: 0.333 train_loss: 369218400.000
+epochs: [5/10] train_acc: 1.000 train_loss: 0.000
+epochs: [6/10] train_acc: 0.000 train_loss: 1194015360.000
+epochs: [7/10] train_acc: 0.000 train_loss: 7466829312.000
+epochs: [8/10] train_acc: 0.000 train_loss: 16860736512.000
+epochs: [9/10] train_acc: 0.000 train_loss: 21730678784.000
+epochs: [10/10] train_acc: 0.333 train_loss: 24254277632.000
+############## client 7 ##############
+epochs: [1/10] train_acc: 0.195 train_loss: 773358513528.357
+epochs: [2/10] train_acc: 0.233 train_loss: 4706560671744.000
+epochs: [3/10] train_acc: 0.242 train_loss: 15392596560944.766
+epochs: [4/10] train_acc: 0.225 train_loss: 31989212936679.609
+epochs: [5/10] train_acc: 0.258 train_loss: 42296669409865.141
+epochs: [6/10] train_acc: 0.248 train_loss: 64147877315340.188
+epochs: [7/10] train_acc: 0.226 train_loss: 91780173391774.469
+epochs: [8/10] train_acc: 0.256 train_loss: 127932790347873.453
+epochs: [9/10] train_acc: 0.237 train_loss: 154943770017011.781
+epochs: [10/10] train_acc: 0.263 train_loss: 184883093500879.188
+############## client 8 ##############
+epochs: [1/10] train_acc: 0.237 train_loss: 89653927640663.078
+epochs: [2/10] train_acc: 0.257 train_loss: 536157551860459.188
+epochs: [3/10] train_acc: 0.260 train_loss: 1478498354224843.750
+epochs: [4/10] train_acc: 0.273 train_loss: 2701009859978683.000
+epochs: [5/10] train_acc: 0.276 train_loss: 4205912351324801.500
+epochs: [6/10] train_acc: 0.280 train_loss: 6315124466867242.000
+epochs: [7/10] train_acc: 0.285 train_loss: 8054449950487992.000
+epochs: [8/10] train_acc: 0.283 train_loss: 11088986880504354.000
+epochs: [9/10] train_acc: 0.285 train_loss: 13727392742818980.000
+epochs: [10/10] train_acc: 0.277 train_loss: 17356422569686112.000
+############## client 4 ##############
+epochs: [1/10] train_acc: 0.289 train_loss: 365679720.000
+epochs: [2/10] train_acc: 0.133 train_loss: 4622638096.000
+epochs: [3/10] train_acc: 0.102 train_loss: 44865799168.000
+epochs: [4/10] train_acc: 0.164 train_loss: 136786391040.000
+epochs: [5/10] train_acc: 0.250 train_loss: 206595334144.000
+epochs: [6/10] train_acc: 0.289 train_loss: 301341040640.000
+epochs: [7/10] train_acc: 0.281 train_loss: 411179130880.000
+epochs: [8/10] train_acc: 0.180 train_loss: 561391427584.000
+epochs: [9/10] train_acc: 0.281 train_loss: 480220504064.000
+epochs: [10/10] train_acc: 0.203 train_loss: 655374303232.000
+############## server ##############
+<All keys matched successfully>
+putting model into eval mode
+correct are 0.100
+cur_acc: 0.100
+iteration [5/100]
+############## client 7 ##############
+epochs: [1/10] train_acc: 0.130 train_loss: nan
+epochs: [2/10] train_acc: 0.104 train_loss: nan
+epochs: [3/10] train_acc: 0.104 train_loss: nan
+epochs: [4/10] train_acc: 0.104 train_loss: nan
+epochs: [5/10] train_acc: 0.104 train_loss: nan
+epochs: [6/10] train_acc: 0.104 train_loss: nan
+epochs: [7/10] train_acc: 0.104 train_loss: nan
+epochs: [8/10] train_acc: 0.104 train_loss: nan
+epochs: [9/10] train_acc: 0.104 train_loss: nan
+epochs: [10/10] train_acc: 0.104 train_loss: nan
+############## client 8 ##############
+epochs: [1/10] train_acc: 0.103 train_loss: nan
+epochs: [2/10] train_acc: 0.099 train_loss: nan
+epochs: [3/10] train_acc: 0.099 train_loss: nan
+epochs: [4/10] train_acc: 0.099 train_loss: nan
+epochs: [5/10] train_acc: 0.099 train_loss: nan
+epochs: [6/10] train_acc: 0.099 train_loss: nan
+epochs: [7/10] train_acc: 0.099 train_loss: nan
+epochs: [8/10] train_acc: 0.099 train_loss: nan
+epochs: [9/10] train_acc: 0.099 train_loss: nan
+epochs: [10/10] train_acc: 0.099 train_loss: nan
+############## client 1 ##############
+epochs: [1/10] train_acc: 0.167 train_loss: 1423610368233869824.000
+epochs: [2/10] train_acc: 0.103 train_loss: nan
+epochs: [3/10] train_acc: 0.088 train_loss: nan
+epochs: [4/10] train_acc: 0.090 train_loss: nan
+epochs: [5/10] train_acc: 0.089 train_loss: nan
+epochs: [6/10] train_acc: 0.089 train_loss: nan
+epochs: [7/10] train_acc: 0.088 train_loss: nan
+epochs: [8/10] train_acc: 0.089 train_loss: nan
+epochs: [9/10] train_acc: 0.089 train_loss: nan
+epochs: [10/10] train_acc: 0.089 train_loss: nan
+############## client 3 ##############
+epochs: [1/10] train_acc: 0.125 train_loss: nan
+epochs: [2/10] train_acc: 0.096 train_loss: nan
+epochs: [3/10] train_acc: 0.096 train_loss: nan
+epochs: [4/10] train_acc: 0.097 train_loss: nan
+epochs: [5/10] train_acc: 0.097 train_loss: nan
+epochs: [6/10] train_acc: 0.096 train_loss: nan
+epochs: [7/10] train_acc: 0.096 train_loss: nan
+epochs: [8/10] train_acc: 0.096 train_loss: nan
+epochs: [9/10] train_acc: 0.096 train_loss: nan
+epochs: [10/10] train_acc: 0.097 train_loss: nan
+############## client 0 ##############
+epochs: [1/10] train_acc: 0.112 train_loss: nan
+epochs: [2/10] train_acc: 0.103 train_loss: nan
+epochs: [3/10] train_acc: 0.103 train_loss: nan
+epochs: [4/10] train_acc: 0.103 train_loss: nan
+epochs: [5/10] train_acc: 0.103 train_loss: nan
+epochs: [6/10] train_acc: 0.103 train_loss: nan
+epochs: [7/10] train_acc: 0.103 train_loss: nan
+epochs: [8/10] train_acc: 0.103 train_loss: nan
+epochs: [9/10] train_acc: 0.103 train_loss: nan
+epochs: [10/10] train_acc: 0.103 train_loss: nan
+############## client 4 ##############
+epochs: [1/10] train_acc: 0.289 train_loss: 401337174982656.000
+epochs: [2/10] train_acc: 0.156 train_loss: 6112434487033856.000
+epochs: [3/10] train_acc: 0.141 train_loss: 46226399073140736.000
+epochs: [4/10] train_acc: 0.234 train_loss: 71715089723424768.000
+epochs: [5/10] train_acc: 0.102 train_loss: 540688476501180416.000
+epochs: [6/10] train_acc: 0.227 train_loss: 1112793590800580608.000
+epochs: [7/10] train_acc: 0.172 train_loss: 1595577773483622400.000
+epochs: [8/10] train_acc: 0.266 train_loss: 2580721706431676416.000
+epochs: [9/10] train_acc: 0.148 train_loss: 5069651234374287360.000
+epochs: [10/10] train_acc: 0.180 train_loss: 7480235851553701888.000
+############## client 2 ##############
+epochs: [1/10] train_acc: 0.333 train_loss: 5884293100339200.000
+epochs: [2/10] train_acc: 0.333 train_loss: 4187977781608448.000
+epochs: [3/10] train_acc: 0.333 train_loss: 1381755135197184.000
+epochs: [4/10] train_acc: 0.667 train_loss: 246477704134656.000
+epochs: [5/10] train_acc: 0.667 train_loss: 32022615556096.000
+epochs: [6/10] train_acc: 0.000 train_loss: 2286493217325056.000
+epochs: [7/10] train_acc: 0.333 train_loss: 12721392483041280.000
+epochs: [8/10] train_acc: 0.000 train_loss: 30518974600970240.000
+epochs: [9/10] train_acc: 0.000 train_loss: 46837528895946752.000
+epochs: [10/10] train_acc: 0.000 train_loss: 18660097450311680.000
+############## client 6 ##############
+epochs: [1/10] train_acc: 0.161 train_loss: 10080336265696598.000
+epochs: [2/10] train_acc: 0.143 train_loss: 477511800373728576.000
+epochs: [3/10] train_acc: 0.146 train_loss: 2966447817296095744.000
+epochs: [4/10] train_acc: 0.102 train_loss: 9885223152820508672.000
+epochs: [5/10] train_acc: 0.102 train_loss: nan
+epochs: [6/10] train_acc: 0.107 train_loss: nan
+epochs: [7/10] train_acc: 0.104 train_loss: nan
+epochs: [8/10] train_acc: 0.107 train_loss: nan
+epochs: [9/10] train_acc: 0.107 train_loss: nan
+epochs: [10/10] train_acc: 0.107 train_loss: nan
+############## client 9 ##############
+epochs: [1/10] train_acc: 0.120 train_loss: nan
+epochs: [2/10] train_acc: 0.101 train_loss: nan
+epochs: [3/10] train_acc: 0.101 train_loss: nan
+epochs: [4/10] train_acc: 0.101 train_loss: nan
+epochs: [5/10] train_acc: 0.101 train_loss: nan
+epochs: [6/10] train_acc: 0.101 train_loss: nan
+epochs: [7/10] train_acc: 0.102 train_loss: nan
+epochs: [8/10] train_acc: 0.102 train_loss: nan
+epochs: [9/10] train_acc: 0.101 train_loss: nan
+epochs: [10/10] train_acc: 0.101 train_loss: nan
+############## client 5 ##############
+epochs: [1/10] train_acc: 0.128 train_loss: nan
+epochs: [2/10] train_acc: 0.098 train_loss: nan
+epochs: [3/10] train_acc: 0.100 train_loss: nan
+epochs: [4/10] train_acc: 0.100 train_loss: nan
+epochs: [5/10] train_acc: 0.099 train_loss: nan
+epochs: [6/10] train_acc: 0.098 train_loss: nan
+epochs: [7/10] train_acc: 0.101 train_loss: nan
+epochs: [8/10] train_acc: 0.101 train_loss: nan
+epochs: [9/10] train_acc: 0.098 train_loss: nan
+epochs: [10/10] train_acc: 0.101 train_loss: nan
+############## server ##############
+<All keys matched successfully>
+putting model into eval mode
+correct are 0.100
+cur_acc: 0.100
+iteration [6/100]
+############## client 1 ##############
+epochs: [1/10] train_acc: 0.089 train_loss: nan
+epochs: [2/10] train_acc: 0.089 train_loss: nan
+epochs: [3/10] train_acc: 0.089 train_loss: nan
+epochs: [4/10] train_acc: 0.090 train_loss: nan
+epochs: [5/10] train_acc: 0.090 train_loss: nan
+epochs: [6/10] train_acc: 0.090 train_loss: nan
+epochs: [7/10] train_acc: 0.090 train_loss: nan
+epochs: [8/10] train_acc: 0.090 train_loss: nan
+epochs: [9/10] train_acc: 0.088 train_loss: nan
+epochs: [10/10] train_acc: 0.089 train_loss: nan
+############## client 0 ##############
+epochs: [1/10] train_acc: 0.103 train_loss: nan
+epochs: [2/10] train_acc: 0.103 train_loss: nan
+epochs: [3/10] train_acc: 0.103 train_loss: nan
