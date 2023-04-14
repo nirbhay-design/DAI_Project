@@ -6104,3 +6104,21 @@ epochs: [6/10] train_acc: 0.997 train_loss: 0.010
 epochs: [7/10] train_acc: 0.994 train_loss: 0.014
 epochs: [8/10] train_acc: 0.996 train_loss: 0.010
 epochs: [9/10] train_acc: 0.997 train_loss: 0.011
+epochs: [10/10] train_acc: 0.995 train_loss: 0.013
+############## client 4 ##############
+epochs: [1/10] train_acc: 1.000 train_loss: 0.003
+epochs: [2/10] train_acc: 0.969 train_loss: 0.102
+epochs: [3/10] train_acc: 1.000 train_loss: 0.001
+epochs: [4/10] train_acc: 1.000 train_loss: 0.013
+epochs: [5/10] train_acc: 1.000 train_loss: 0.000
+epochs: [6/10] train_acc: 1.000 train_loss: 0.001
+epochs: [7/10] train_acc: 0.969 train_loss: 0.117
+epochs: [8/10] train_acc: 0.969 train_loss: 0.092
+epochs: [9/10] train_acc: 1.000 train_loss: 0.001
+epochs: [10/10] train_acc: 1.000 train_loss: 0.009
+############## client 1 ##############
+epochs: [1/10] train_acc: 0.997 train_loss: 0.009
+epochs: [2/10] train_acc: 0.996 train_loss: 0.013
+epochs: [3/10] train_acc: 0.997 train_loss: 0.008
+epochs: [4/10] train_acc: 0.999 train_loss: 0.006
+epochs: [5/10] train_acc: 1.000 train_loss: 0.004
