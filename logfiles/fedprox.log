@@ -77,3 +77,7 @@ epochs: [3/5] train_acc: 0.387 train_loss: 1.942
 epochs: [4/5] train_acc: 0.458 train_loss: 1.816
 epochs: [5/5] train_acc: 0.502 train_loss: 1.668
 ############## client 8 ##############
+epochs: [1/5] train_acc: 0.382 train_loss: 1.993
+epochs: [2/5] train_acc: 0.513 train_loss: 1.649
+epochs: [3/5] train_acc: 0.567 train_loss: 1.500
+epochs: [4/5] train_acc: 0.606 train_loss: 1.400
