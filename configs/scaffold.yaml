@@ -30,7 +30,7 @@ sample_clients: 1
 lr: 0.001
     
 total_iterations: 100
-client_iterations: 10
+client_iterations: 5
 img_size:
     - 32
     - 32

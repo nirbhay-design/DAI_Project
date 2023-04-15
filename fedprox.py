@@ -51,6 +51,7 @@ class Client():
         self.lossfn = nn.CrossEntropyLoss()
         self.serv_mdl = return_model(mdl_name, self.nc)
         self.cpu = torch.device('cpu')
+        self.alpha = config['alpha']
         
     def train_client(self, transformations, n_epochs, device): 
         self.mdl = self.mdl.to(device)
@@ -106,7 +107,8 @@ class Client():
         loss_val = 0
         
         for name, params in params1.items():
-            loss_val += torch.norm(params1[name] - params2[name])
+            norm_val = torch.norm(params1[name] - params2[name]) ** 2
+            loss_val += self.alpha * 0.5 * norm_val
             
         return loss_val
     
