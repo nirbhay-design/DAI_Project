@@ -254,3 +254,33 @@ epochs: [3/5] train_acc: 0.921 train_loss: 0.223
 epochs: [4/5] train_acc: 0.944 train_loss: 0.185
 epochs: [5/5] train_acc: 0.962 train_loss: 0.132
 ############## client 0 ##############
+epochs: [1/5] train_acc: 0.829 train_loss: 0.507
+epochs: [2/5] train_acc: 0.882 train_loss: 0.343
+epochs: [3/5] train_acc: 0.912 train_loss: 0.267
+epochs: [4/5] train_acc: 0.931 train_loss: 0.203
+epochs: [5/5] train_acc: 0.940 train_loss: 0.183
+############## client 9 ##############
+epochs: [1/5] train_acc: 0.834 train_loss: 0.483
+epochs: [2/5] train_acc: 0.902 train_loss: 0.295
+epochs: [3/5] train_acc: 0.916 train_loss: 0.250
+epochs: [4/5] train_acc: 0.939 train_loss: 0.188
+epochs: [5/5] train_acc: 0.950 train_loss: 0.155
+############## client 6 ##############
+epochs: [1/5] train_acc: 0.766 train_loss: 0.472
+epochs: [2/5] train_acc: 0.818 train_loss: 0.269
+epochs: [3/5] train_acc: 0.846 train_loss: 0.191
+epochs: [4/5] train_acc: 0.888 train_loss: 0.092
+epochs: [5/5] train_acc: 0.904 train_loss: 0.068
+############## client 2 ##############
+epochs: [1/5] train_acc: 1.000 train_loss: 0.107
+epochs: [2/5] train_acc: 1.000 train_loss: 0.017
+epochs: [3/5] train_acc: 1.000 train_loss: 0.009
+epochs: [4/5] train_acc: 1.000 train_loss: 0.010
+epochs: [5/5] train_acc: 1.000 train_loss: 0.002
+############## client 7 ##############
+epochs: [1/5] train_acc: 0.842 train_loss: 0.511
+epochs: [2/5] train_acc: 0.891 train_loss: 0.308
+epochs: [3/5] train_acc: 0.937 train_loss: 0.200
+epochs: [4/5] train_acc: 0.953 train_loss: 0.159
+epochs: [5/5] train_acc: 0.957 train_loss: 0.135
+############## client 8 ##############

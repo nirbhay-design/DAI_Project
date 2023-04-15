@@ -217,3 +217,33 @@ epochs: [5/5] train_acc: 0.707 train_loss: 0.840
 ############## client 8 ##############
 epochs: [1/5] train_acc: 0.561 train_loss: 1.249
 epochs: [2/5] train_acc: 0.659 train_loss: 0.978
+epochs: [3/5] train_acc: 0.715 train_loss: 0.830
+epochs: [4/5] train_acc: 0.749 train_loss: 0.726
+epochs: [5/5] train_acc: 0.774 train_loss: 0.650
+############## client 2 ##############
+epochs: [1/5] train_acc: 0.000 train_loss: 3.855
+epochs: [2/5] train_acc: 0.000 train_loss: 3.566
+epochs: [3/5] train_acc: 0.333 train_loss: 2.793
+epochs: [4/5] train_acc: 1.000 train_loss: 0.994
+epochs: [5/5] train_acc: 0.667 train_loss: 0.764
+############## client 5 ##############
+epochs: [1/5] train_acc: 0.483 train_loss: 1.419
+epochs: [2/5] train_acc: 0.547 train_loss: 1.270
+epochs: [3/5] train_acc: 0.602 train_loss: 1.108
+epochs: [4/5] train_acc: 0.660 train_loss: 0.953
+epochs: [5/5] train_acc: 0.700 train_loss: 0.841
+############## server ##############
+<All keys matched successfully>
+putting model into eval mode
+correct are 0.609
+cur_acc: 0.609
+iteration [4/100]
+############## client 3 ##############
+epochs: [1/5] train_acc: 0.617 train_loss: 1.106
+epochs: [2/5] train_acc: 0.663 train_loss: 0.969
+epochs: [3/5] train_acc: 0.711 train_loss: 0.857
+epochs: [4/5] train_acc: 0.744 train_loss: 0.717
+epochs: [5/5] train_acc: 0.778 train_loss: 0.633
+############## client 5 ##############
+epochs: [1/5] train_acc: 0.608 train_loss: 1.107
+epochs: [2/5] train_acc: 0.652 train_loss: 0.990
