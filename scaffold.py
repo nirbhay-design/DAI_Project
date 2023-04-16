@@ -21,6 +21,7 @@ from sklearn.preprocessing import label_binarize
 from sklearn.metrics import classification_report,auc,roc_curve,precision_recall_fscore_support
 from inference import evaluate_single_server
 from data_model_loading import load_dataset, load_model as return_model, load_dataset_test
+from ampreg import AMP
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -60,7 +61,15 @@ class Client():
         self.serv_mdl = return_model(mdl_name, self.nc)
         self.cpu = torch.device('cpu')
         
-    def train_client(self, transformations, n_epochs, device): 
+        if self.adv:
+            self.epsilon = config['epsilon']
+            self.inner_lr = config['inner_lr']
+            self.inner_iter = config['inner_iter']
+            self.train_client = self._train_client_adv
+        else:
+            self.train_client = self._train_client
+        
+    def _train_client(self, transformations, n_epochs, device): 
         self.put_to_device(device)
         c_diff = self.c_diff()
         self.mdl = self.mdl.to(device)
@@ -114,6 +123,68 @@ class Client():
         self.off_device()
         
         return tval 
+    
+    def _train_client_adv(self, transformations, n_epochs, device): 
+        self.put_to_device(device)
+        c_diff = self.c_diff()
+        self.mdl = self.mdl.to(device)
+        self.serv_mdl = self.serv_mdl.to(device)
+        self.opt = AMP(params=filter(lambda p: p.requires_grad, self.mdl.parameters()),
+                        lr=self.lr,
+                        epsilon=self.epsilon,
+                        inner_lr=self.inner_lr,
+                        inner_iter=self.inner_iter,
+                        base_optimizer=torch.optim.SGD,
+                        momentum=self.mom,
+                        weight_decay=0.0,
+                        nesterov=True)
+        tval = {'trainacc':[],"trainloss":[]}
+        self.mdl.train()
+        len_train = len(self.train_loader)
+        for epochs in range(n_epochs):
+            cur_loss = 0
+            curacc = 0
+            for idx , (data,target) in enumerate(self.train_loader):
+                if data.shape[0] == 1:
+                    continue
+                data = transformations(data)    
+                data = data.to(device)
+                target = target.to(device)
+                
+                def closure():
+                    self.opt.zero_grad()
+                    scores = self.mdl(data)
+                    loss = self.lossfn(scores, target)
+                    loss.backward()
+                    for name, params in self.mdl.named_parameters():
+                        params.grad += c_diff[name]
+                    return outputs, loss 
+                
+                scores, loss = self.opt.step(closure)
+
+                cur_loss += loss.item() / (len_train)
+                scores = F.softmax(scores,dim = 1)
+                _,predicted = torch.max(scores,dim = 1)
+                correct = (predicted == target).sum()
+                samples = scores.shape[0]
+                curacc += correct / (samples * len_train)
+
+                if self.return_logs:
+                    progress(idx+1,len_train)
+
+            tval['trainacc'].append(float(curacc))
+            tval['trainloss'].append(float(cur_loss))
+
+            print(f"epochs: [{epochs+1}/{n_epochs}] train_acc: {curacc:.3f} train_loss: {cur_loss:.3f}")
+            
+        self.mdl = copy.deepcopy(self.mdl)
+        
+        self.mdl_diff = self.diff_mdl()
+        self.c, self.diff_c = self.update_c(c_diff, self.mdl_diff, n_epochs)
+        
+        self.off_device()
+        
+        return tval
     
     def put_to_device(self, device):
         for name, params in self.c.items():
