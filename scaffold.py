@@ -158,7 +158,7 @@ class Client():
                     loss.backward()
                     for name, params in self.mdl.named_parameters():
                         params.grad += c_diff[name]
-                    return outputs, loss 
+                    return scores, loss 
                 
                 scores, loss = self.opt.step(closure)
 

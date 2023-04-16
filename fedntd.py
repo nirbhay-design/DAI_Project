@@ -170,7 +170,7 @@ class Client():
                         
                     loss = self.lossfn(scores, server_scr, target)
                     loss.backward()
-                    return outputs, loss 
+                    return scores, loss 
                 
                 scores, loss = self.opt.step(closure)
 
