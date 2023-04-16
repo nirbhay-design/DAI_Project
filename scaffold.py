@@ -58,6 +58,7 @@ class Client():
             for name, params in self.mdl.named_parameters()
         }
         self.serv_mdl = return_model(mdl_name, self.nc)
+        self.cpu = torch.device('cpu')
         
     def train_client(self, transformations, n_epochs, device): 
         self.put_to_device(device)
@@ -106,8 +107,11 @@ class Client():
             
         self.mdl = copy.deepcopy(self.mdl)
         
+        
         self.mdl_diff = self.diff_mdl()
         self.c, self.diff_c = self.update_c(c_diff, self.mdl_diff, n_epochs)
+        
+        self.off_device()
         
         return tval 
     
@@ -115,6 +119,11 @@ class Client():
         for name, params in self.c.items():
             self.c[name] = self.c[name].to(device)
             self.ci[name] = self.ci[name].to(device)
+            
+    def off_device(self):
+        for name, params in self.c.items():
+            self.c[name] = self.c[name].to(self.cpu)
+            self.ci[name] = self.ci[name].to(self.cpu)
     
     def c_diff(self):
         # c - c_i
@@ -131,6 +140,7 @@ class Client():
             mdl_diff[name] = params - server_parms[name]
         return mdl_diff
     
+    @torch.no_grad()
     def update_c(self, c_diff, mdl_diff, K):
         # c+
         alpha = 1 / (K * self.lr)
@@ -165,9 +175,10 @@ class Server():
         
     def put_to_device(self, device):
         self.mdl = self.mdl.to(device)
-        for name, params in self.c.items():
-            self.c[name] = self.c[name].to(device)
-        
+        # for name, params in self.c.items():
+        #     self.c[name] = self.c[name].to(device)
+    
+    @torch.no_grad()
     def aggregate_models(self, clients_model, c_diff):
         update_state = OrderedDict()
         avg_cv = OrderedDict()
