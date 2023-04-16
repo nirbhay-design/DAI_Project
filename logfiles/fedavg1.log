@@ -1,0 +1,73 @@
+environment: 
+YAML: configs/fedavg1.yaml
+==> model: Resnet18
+==> client_model: Resnet18
+==> dataset_path: datasets/cifar10
+==> dataset: cifar10
+==> nclass: 10
+==> test_dataset: cifar10
+==> test_dataset_path: datasets/cifar10
+==> standardize: True
+==> augment: True
+==> pin_memory: True
+==> n_workers: 4
+==> SEED: 42
+==> batch_size: 32
+==> gpu: 0
+==> server_gpu: 0
+==> adv: False
+==> iid: False
+==> beta: 0.6
+==> alpha: 0.01
+==> params_avg: 0.001
+==> n_clients: 30
+==> sample_clients: 0.3
+==> lr: 0.001
+==> total_iterations: 100
+==> client_iterations: 5
+==> img_size: [32, 32]
+==> eval_mode: True
+==> individual: False
+==> opt: SGD
+==> momentum: 0.9
+==> return_logs: False
+==> pid: 30011
+augmenting dataset
+standardizing dataset
+Files already downloaded and verified
+50000
+non iid data loading
+tensor([ 4648,  1183,    26,  2208,   273,  1466,   483,  2117, 15150,  3339,
+         2279,  1255,   289,    43,   703,   778,   353,   744,   916,   234,
+          344,   148,  1013,  1629,  2836,   110,    75,  2163,    36,  3159])
+Files already downloaded and verified
+iteration [1/100]
+############## client 20 ##############
+epochs: [1/5] train_acc: 0.122 train_loss: 2.600
+epochs: [2/5] train_acc: 0.215 train_loss: 2.269
+epochs: [3/5] train_acc: 0.294 train_loss: 2.015
+epochs: [4/5] train_acc: 0.432 train_loss: 1.630
+epochs: [5/5] train_acc: 0.533 train_loss: 1.394
+############## client 3 ##############
+epochs: [1/5] train_acc: 0.199 train_loss: 2.275
+epochs: [2/5] train_acc: 0.314 train_loss: 1.905
+epochs: [3/5] train_acc: 0.384 train_loss: 1.717
+epochs: [4/5] train_acc: 0.442 train_loss: 1.553
+epochs: [5/5] train_acc: 0.490 train_loss: 1.423
+############## client 0 ##############
+epochs: [1/5] train_acc: 0.264 train_loss: 2.070
+epochs: [2/5] train_acc: 0.381 train_loss: 1.713
+epochs: [3/5] train_acc: 0.406 train_loss: 1.594
+epochs: [4/5] train_acc: 0.473 train_loss: 1.463
+epochs: [5/5] train_acc: 0.509 train_loss: 1.380
+############## client 23 ##############
+epochs: [1/5] train_acc: 0.189 train_loss: 2.272
+epochs: [2/5] train_acc: 0.314 train_loss: 1.895
+epochs: [3/5] train_acc: 0.391 train_loss: 1.711
+epochs: [4/5] train_acc: 0.459 train_loss: 1.550
+epochs: [5/5] train_acc: 0.492 train_loss: 1.424
+############## client 8 ##############
+epochs: [1/5] train_acc: 0.346 train_loss: 1.803
+epochs: [2/5] train_acc: 0.473 train_loss: 1.461
+epochs: [3/5] train_acc: 0.539 train_loss: 1.306
+epochs: [4/5] train_acc: 0.577 train_loss: 1.194
