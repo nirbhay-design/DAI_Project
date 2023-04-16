@@ -3694,3 +3694,53 @@ epochs: [1/5] train_acc: 0.990 train_loss: 0.030
 epochs: [2/5] train_acc: 0.993 train_loss: 0.021
 epochs: [3/5] train_acc: 0.995 train_loss: 0.016
 epochs: [4/5] train_acc: 0.997 train_loss: 0.010
+epochs: [5/5] train_acc: 0.997 train_loss: 0.012
+############## server ##############
+putting model into eval mode
+correct are 0.813
+cur_acc: 0.813
+iteration [63/100]
+############## client 5 ##############
+epochs: [1/5] train_acc: 0.982 train_loss: 0.048
+epochs: [2/5] train_acc: 0.988 train_loss: 0.032
+epochs: [3/5] train_acc: 0.993 train_loss: 0.023
+epochs: [4/5] train_acc: 0.994 train_loss: 0.025
+epochs: [5/5] train_acc: 0.995 train_loss: 0.021
+############## client 18 ##############
+epochs: [1/5] train_acc: 0.947 train_loss: 0.156
+epochs: [2/5] train_acc: 0.968 train_loss: 0.102
+epochs: [3/5] train_acc: 0.980 train_loss: 0.054
+epochs: [4/5] train_acc: 0.990 train_loss: 0.029
+epochs: [5/5] train_acc: 0.986 train_loss: 0.036
+############## client 8 ##############
+epochs: [1/5] train_acc: 0.996 train_loss: 0.013
+epochs: [2/5] train_acc: 0.996 train_loss: 0.012
+epochs: [3/5] train_acc: 0.997 train_loss: 0.008
+epochs: [4/5] train_acc: 0.997 train_loss: 0.009
+epochs: [5/5] train_acc: 0.998 train_loss: 0.007
+############## client 1 ##############
+epochs: [1/5] train_acc: 0.974 train_loss: 0.079
+epochs: [2/5] train_acc: 0.990 train_loss: 0.033
+epochs: [3/5] train_acc: 0.991 train_loss: 0.026
+epochs: [4/5] train_acc: 0.996 train_loss: 0.017
+epochs: [5/5] train_acc: 0.994 train_loss: 0.016
+############## client 3 ##############
+epochs: [1/5] train_acc: 0.991 train_loss: 0.024
+epochs: [2/5] train_acc: 0.994 train_loss: 0.017
+epochs: [3/5] train_acc: 0.996 train_loss: 0.014
+epochs: [4/5] train_acc: 0.995 train_loss: 0.014
+epochs: [5/5] train_acc: 0.998 train_loss: 0.007
+############## client 19 ##############
+epochs: [1/5] train_acc: 0.984 train_loss: 0.051
+epochs: [2/5] train_acc: 0.980 train_loss: 0.037
+epochs: [3/5] train_acc: 0.959 train_loss: 0.119
+epochs: [4/5] train_acc: 1.000 train_loss: 0.013
+epochs: [5/5] train_acc: 0.984 train_loss: 0.043
+############## client 13 ##############
+epochs: [1/5] train_acc: 0.955 train_loss: 0.193
+epochs: [2/5] train_acc: 1.000 train_loss: 0.002
+epochs: [3/5] train_acc: 0.909 train_loss: 0.473
+epochs: [4/5] train_acc: 0.864 train_loss: 0.275
+epochs: [5/5] train_acc: 1.000 train_loss: 0.007
+############## client 11 ##############
+epochs: [1/5] train_acc: 0.971 train_loss: 0.109
