@@ -100,6 +100,7 @@ class Client():
         self.mdl = copy.deepcopy(server_mdl)
         self.serv_mdl = copy.deepcopy(server_mdl)
         
+    @torch.no_grad()
     def prox_reg(self):
         params1 = dict(self.mdl.named_parameters())
         params2 = dict(self.serv_mdl.named_parameters())
@@ -119,6 +120,7 @@ class Server():
         self.mdl = return_model(config['model'], self.nc)
         self.device = device
         
+    @torch.no_grad()
     def aggregate_models(self, clients_model):
         update_state = OrderedDict()
         n_clients = len(clients_model)
