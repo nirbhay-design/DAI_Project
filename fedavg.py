@@ -131,7 +131,7 @@ class Client():
                     scores = self.mdl(data)
                     loss = self.lossfn(scores, target)
                     loss.backward()
-                    return outputs, loss 
+                    return scores, loss 
                 
                 scores, loss = self.opt.step(closure)
 
