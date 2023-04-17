@@ -23,17 +23,17 @@ inner_lr: 0.01
 inner_iter: 1
 
 iid: False
-beta: 0.4
+beta: 0.6
 alpha: 0.01
 params_avg: 0.001
 
-n_clients: 10
-sample_clients: 0.2
+n_clients: 30
+sample_clients: 0.3
 
 lr: 0.001
     
 total_iterations: 100
-client_iterations: 1
+client_iterations: 5
 img_size:
     - 32
     - 32
@@ -46,5 +46,5 @@ momentum: 0.9
 
 # server_model: /DATA/sharma59/Know_distil/datafreekd/saved_models/resnet18_fed_avg_real_v1.pt
 
-return_logs: True
+return_logs: False
 pid: 30011

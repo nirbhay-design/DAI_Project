@@ -1,0 +1,63 @@
+environment: 
+YAML: configs/fedprox_amp.yaml
+==> model: Resnet18
+==> client_model: Resnet18
+==> dataset_path: datasets/cifar10
+==> dataset: cifar10
+==> nclass: 10
+==> test_dataset: cifar10
+==> test_dataset_path: datasets/cifar10
+==> standardize: True
+==> augment: True
+==> pin_memory: True
+==> n_workers: 4
+==> SEED: 42
+==> batch_size: 32
+==> gpu: 0
+==> server_gpu: 0
+==> adv: True
+==> epsilon: 0.5
+==> inner_lr: 0.01
+==> inner_iter: 1
+==> iid: False
+==> beta: 0.6
+==> alpha: 0.01
+==> params_avg: 0.001
+==> n_clients: 30
+==> sample_clients: 0.3
+==> lr: 0.001
+==> total_iterations: 100
+==> client_iterations: 5
+==> img_size: [32, 32]
+==> eval_mode: True
+==> individual: False
+==> opt: SGD
+==> momentum: 0.9
+==> return_logs: False
+==> pid: 30011
+augmenting dataset
+standardizing dataset
+Files already downloaded and verified
+50000
+non iid data loading
+tensor([ 4648,  1183,    26,  2208,   273,  1466,   483,  2117, 15150,  3339,
+         2279,  1255,   289,    43,   703,   778,   353,   744,   916,   234,
+          344,   148,  1013,  1629,  2836,   110,    75,  2163,    36,  3159])
+Files already downloaded and verified
+iteration [1/100]
+############## client 20 ##############
+epochs: [1/5] train_acc: 0.127 train_loss: 2.810
+epochs: [2/5] train_acc: 0.188 train_loss: 2.471
+epochs: [3/5] train_acc: 0.249 train_loss: 2.375
+epochs: [4/5] train_acc: 0.262 train_loss: 2.357
+epochs: [5/5] train_acc: 0.270 train_loss: 2.330
+############## client 3 ##############
+epochs: [1/5] train_acc: 0.154 train_loss: 2.540
+epochs: [2/5] train_acc: 0.201 train_loss: 2.410
+epochs: [3/5] train_acc: 0.242 train_loss: 2.280
+epochs: [4/5] train_acc: 0.274 train_loss: 2.184
+epochs: [5/5] train_acc: 0.292 train_loss: 2.186
+############## client 0 ##############
+epochs: [1/5] train_acc: 0.200 train_loss: 2.440
+epochs: [2/5] train_acc: 0.275 train_loss: 2.215
+epochs: [3/5] train_acc: 0.321 train_loss: 2.086
