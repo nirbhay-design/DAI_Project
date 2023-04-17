@@ -1,6 +1,6 @@
 # #!/bin/bash
 
-# cp fedavg1.yaml fedavg_c100.yaml
-# cp fedprox1.yaml fedprox_c100.yaml
-# cp fedntd1.yaml fedntd_c100.yaml
-# cp scaffold1.yaml scaffold_c100.yaml
+# cp fedavg_amp.yaml fedavg_c100_amp.yaml
+# cp fedprox_amp.yaml fedprox_c100_amp.yaml
+# cp fedntd_amp.yaml fedntd_c100_amp.yaml
+# cp scaffold_amp.yaml scaffold_c100_amp.yaml
