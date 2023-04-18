@@ -1,11 +1,11 @@
 model: Resnet18
 client_model: Resnet18
 
-dataset_path: datasets/cifar10
-dataset: cifar10
-nclass: 10
-test_dataset: cifar10
-test_dataset_path: datasets/cifar10
+dataset_path: datasets/cifar100
+dataset: cifar100
+nclass: 100
+test_dataset: cifar100
+test_dataset_path: datasets/cifar100
 
 standardize: True
 augment: True
