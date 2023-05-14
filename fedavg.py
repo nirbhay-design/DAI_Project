@@ -30,6 +30,14 @@ def yaml_loader(yaml_file):
     with open(yaml_file,'r') as f:
         config_data = yaml.load(f,Loader=SafeLoader)
         
+    args = sys.argv
+        
+    if '-s' in args:
+        config_data['SEED'] = int(args[args.index('-s') + 1]) 
+    
+    if '-e' in args:
+        config_data['total_iterations'] = int(args[args.index('-e') + 1])
+        
     return config_data
 
 def progress(current,total):
