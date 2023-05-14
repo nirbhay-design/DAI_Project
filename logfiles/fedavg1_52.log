@@ -1,0 +1,84 @@
+environment: 
+YAML: configs/fedavg1.yaml
+==> model: Resnet18
+==> client_model: Resnet18
+==> dataset_path: datasets/cifar10
+==> dataset: cifar10
+==> nclass: 10
+==> test_dataset: cifar10
+==> test_dataset_path: datasets/cifar10
+==> standardize: True
+==> augment: True
+==> pin_memory: True
+==> n_workers: 4
+==> SEED: 52
+==> batch_size: 32
+==> gpu: 0
+==> server_gpu: 0
+==> adv: False
+==> iid: False
+==> beta: 0.6
+==> alpha: 0.01
+==> params_avg: 0.001
+==> n_clients: 30
+==> sample_clients: 0.3
+==> lr: 0.001
+==> total_iterations: 50
+==> client_iterations: 5
+==> img_size: [32, 32]
+==> eval_mode: True
+==> individual: False
+==> opt: SGD
+==> momentum: 0.9
+==> return_logs: False
+==> pid: 30011
+augmenting dataset
+standardizing dataset
+Files already downloaded and verified
+50000
+non iid data loading
+tensor([  77, 2348,  129, 1442,  237, 1008, 1503, 2096, 1410, 1509,  239, 1984,
+         390, 1104, 3913,  207,  810, 3543,  970, 1212, 1745, 5721,  471,  130,
+         291,  294, 1605, 4166, 9319,  127])
+Files already downloaded and verified
+iteration [1/50]
+############## client 8 ##############
+epochs: [1/5] train_acc: 0.206 train_loss: 2.292
+epochs: [2/5] train_acc: 0.265 train_loss: 2.047
+epochs: [3/5] train_acc: 0.238 train_loss: 2.147
+epochs: [4/5] train_acc: 0.219 train_loss: 2.142
+epochs: [5/5] train_acc: 0.247 train_loss: 2.082
+############## client 1 ##############
+epochs: [1/5] train_acc: 0.231 train_loss: 2.149
+epochs: [2/5] train_acc: 0.322 train_loss: 1.854
+epochs: [3/5] train_acc: 0.396 train_loss: 1.672
+epochs: [4/5] train_acc: 0.464 train_loss: 1.515
+epochs: [5/5] train_acc: 0.496 train_loss: 1.388
+############## client 23 ##############
+epochs: [1/5] train_acc: 0.181 train_loss: 2.340
+epochs: [2/5] train_acc: 0.106 train_loss: 2.522
+epochs: [3/5] train_acc: 0.094 train_loss: 2.366
+epochs: [4/5] train_acc: 0.088 train_loss: 2.425
+epochs: [5/5] train_acc: 0.169 train_loss: 2.681
+############## client 16 ##############
+epochs: [1/5] train_acc: 0.156 train_loss: 2.354
+epochs: [2/5] train_acc: 0.263 train_loss: 2.161
+epochs: [3/5] train_acc: 0.312 train_loss: 1.931
+epochs: [4/5] train_acc: 0.394 train_loss: 1.734
+epochs: [5/5] train_acc: 0.455 train_loss: 1.559
+############## client 15 ##############
+epochs: [1/5] train_acc: 0.094 train_loss: 2.558
+epochs: [2/5] train_acc: 0.216 train_loss: 2.136
+epochs: [3/5] train_acc: 0.360 train_loss: 2.043
+epochs: [4/5] train_acc: 0.337 train_loss: 1.826
+epochs: [5/5] train_acc: 0.463 train_loss: 1.563
+############## client 11 ##############
+epochs: [1/5] train_acc: 0.194 train_loss: 2.263
+epochs: [2/5] train_acc: 0.332 train_loss: 1.866
+epochs: [3/5] train_acc: 0.397 train_loss: 1.678
+epochs: [4/5] train_acc: 0.439 train_loss: 1.575
+epochs: [5/5] train_acc: 0.501 train_loss: 1.389
+############## client 13 ##############
+epochs: [1/5] train_acc: 0.172 train_loss: 2.319
+epochs: [2/5] train_acc: 0.246 train_loss: 2.036
+epochs: [3/5] train_acc: 0.338 train_loss: 1.865
