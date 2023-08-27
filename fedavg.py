@@ -164,6 +164,9 @@ class Client():
     
     def replace_mdl(self, server_mdl):
         self.mdl = copy.deepcopy(server_mdl)
+
+    def cpu_model(self, cpu_device):
+        self.mdl = self.mdl.to(cpu_device)
     
     
 class Server():
@@ -195,6 +198,7 @@ class FedAvg():
         self.totaliter = config['total_iterations']
         self.test_data = test_data
         self.sample_cli = int(config['sample_clients'] * self.nclients)
+        self.cpu = torch.device('cpu')
         
         self.clients = []
         
@@ -238,6 +242,7 @@ class FedAvg():
             
             for pdx in clients_selected:
                 self.clients[pdx].replace_mdl(self.server.mdl)
+                self.clients[pdx].cpu_model(self.cpu)
             
             print(f'cur_acc: {single_acc.item():.3f}')
             
