@@ -37,6 +37,29 @@ def yaml_loader(yaml_file):
     
     if '-e' in args:
         config_data['total_iterations'] = int(args[args.index('-e') + 1])
+
+    if '-b' in args:
+        config_data['beta'] = float(args[args.index('-b') + 1])
+
+    if '-nc' in args:
+        config_data['n_clients'] = int(args[args.index('-nc') + 1])
+    
+    if '-sc' in args:
+        config_data['sample_clients'] = float(args[args.index('-sc') + 1])
+
+    if '-rl' in args:
+        config_data['return_logs'] = eval(args[args.index('-rl') + 1])
+
+    if '-ci' in args:
+        config_data['client_iterations'] = int(args[args.index('-ci') + 1])
+
+    if '-clr' in args:
+        config_data['lr'] = float(args[args.index('-clr') + 1])
+
+    if '-g' in args:
+        gpu_id = int(args[args.index('-g') + 1])
+        config_data['gpu'] = gpu_id
+        config_data['server_gpu'] = gpu_id
         
     return config_data
 
@@ -207,7 +230,7 @@ class Client():
 
     def cpu_model(self, cpu_device):
         self.mdl = self.mdl.to(cpu_device)
-        self.serv_mdl = self.serv_mdl(cpu_device)
+        self.serv_mdl = self.serv_mdl.to(cpu_device)
     
 class Server():
     def __init__(self, config, device):

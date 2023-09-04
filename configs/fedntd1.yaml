@@ -1,5 +1,5 @@
-model: Resnet18
-client_model: Resnet18
+model: WRN_40
+client_model: WRN_40
 
 dataset_path: datasets/cifar10
 dataset: cifar10
@@ -30,7 +30,7 @@ sample_clients: 0.3
 lr: 0.001
     
 total_iterations: 100
-client_iterations: 5
+client_iterations: 10
 img_size:
     - 32
     - 32

@@ -1,5 +1,5 @@
-model: Resnet18
-client_model: Resnet18
+model: WRN_40
+client_model: WRN_40
 
 dataset_path: datasets/cifar10
 dataset: cifar10

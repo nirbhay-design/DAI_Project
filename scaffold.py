@@ -37,6 +37,29 @@ def yaml_loader(yaml_file):
     
     if '-e' in args:
         config_data['total_iterations'] = int(args[args.index('-e') + 1])
+
+    if '-b' in args:
+        config_data['beta'] = float(args[args.index('-b') + 1])
+
+    if '-nc' in args:
+        config_data['n_clients'] = int(args[args.index('-nc') + 1])
+    
+    if '-sc' in args:
+        config_data['sample_clients'] = float(args[args.index('-sc') + 1])
+
+    if '-rl' in args:
+        config_data['return_logs'] = eval(args[args.index('-rl') + 1])
+
+    if '-ci' in args:
+        config_data['client_iterations'] = int(args[args.index('-ci') + 1])
+
+    if '-clr' in args:
+        config_data['lr'] = float(args[args.index('-clr') + 1])
+
+    if '-g' in args:
+        gpu_id = int(args[args.index('-g') + 1])
+        config_data['gpu'] = gpu_id
+        config_data['server_gpu'] = gpu_id
         
     return config_data
 
@@ -236,6 +259,10 @@ class Client():
         self.mdl = copy.copy(server_mdl)
         self.serv_mdl = copy.copy(server_mdl)
         self.c = server_c
+
+    def cpu_model(self):
+        self.mdl = self.mdl.to(self.cpu)
+        self.serv_mdl = self.serv_mdl.to(self.cpu)
     
     
 class Server():
@@ -371,6 +398,9 @@ class SCAFFOLD():
             )
             
             print(f'cur_acc: {single_acc.item():.3f}')
+
+            for pdx in clients_selected:
+                self.clients[pdx].cpu_model()
             
         end_time = time.perf_counter()
         elapsed_time = int(end_time - start_time)
